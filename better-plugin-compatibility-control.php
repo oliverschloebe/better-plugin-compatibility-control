@@ -8,7 +8,7 @@
  
 /*
 Plugin Name: Better Plugin Compatibility Control
-Version: 3.6
+Version: 3.8
 Plugin URI: http://www.schloebe.de/wordpress/better-plugin-compatibility-control-plugin/
 Description: Adds version compatibility info to the plugins page to inform the admin at a glance if a plugin is compatible with the current WP version.
 Author: Oliver Schl&ouml;be
@@ -48,10 +48,10 @@ if ( !defined( 'WP_PLUGIN_DIR' ) )
 /**
  * Define the plugin version
  */
-define("BPCC_VERSION", "3.6");
+define("BPCC_VERSION", "3.8");
 
 /**
- * Define the global var AMEISWP25, returning bool if at least WP 2.3 is running
+ * Define the global var AMEISWP28, returning bool if at least WP 2.8 is running
  */
 define('BPCCISWP28', version_compare($GLOBALS['wp_version'], '2.7.999', '>='));
 
@@ -95,7 +95,7 @@ class BetterPluginCompatibilityControl {
 			return;
 		}
 		
-		add_action('admin_init', array(&$this, 'bpcc_load_textdomain'));
+		add_action('plugins_loaded', array(&$this, 'bpcc_load_textdomain'));
 		add_action('admin_init', array(&$this, 'bpcc_init'));
 	}
 	
@@ -223,13 +223,7 @@ class BetterPluginCompatibilityControl {
  	* @author scripts@schloebe.de
  	*/
 	function bpcc_load_textdomain() {
-		if ( function_exists('load_plugin_textdomain') ) {
-			if ( !defined('WP_PLUGIN_DIR') ) {
-       		 	load_plugin_textdomain('better-plugin-compatibility-control', str_replace( ABSPATH, '', dirname(__FILE__) ) . '/languages');
-        	} else {
-        		load_plugin_textdomain('better-plugin-compatibility-control', false, dirname(plugin_basename(__FILE__)) . '/languages');
-        	}
-		}
+		load_plugin_textdomain('better-plugin-compatibility-control', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/');
 	}
 	
 	
