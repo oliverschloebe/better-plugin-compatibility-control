@@ -2,8 +2,8 @@
 Contributors: Alphawolf
 Donate link: http://www.schloebe.de/donate/
 Tags: admin, management, plugin, plugins, version, control, compatibility, compatible
-Requires at least: 2.8
-Tested up to: 3.9
+Requires at least: 2.9
+Tested up to: 4.4.9999
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -24,8 +24,11 @@ Adds version compatibility info to the plugins page to inform the admin at a gla
 * Uzbek (uz_UZ) (Thanks for contributing uzbek language goes to [Alexandra Bolshova](http://www.comfi.com))
 * French (fr_FR) (Thanks for contributing french language goes to [tolingo translations](http://www.tolingo.com))
 * French (es_ES) (Thanks for contributing spanisch language goes to nomeconsumas.org)
+* Hebrew (he_IL) (Thanks for contributing hebrew language goes to Atar4U / https://profiles.wordpress.org/ahrale/)
 
 [Developer on Google+](https://plus.google.com/118074611982254715031 "Developer on Google+") | [Developer on Twitter](http://twitter.com/wpseek "Developer on Twitter")
+
+[Become A Patron, Support The Developer.](http://www.patreon.com/oliver_schloebe "Become A Patron, Support The Developer.")
 
 **Looking for more WordPress plugins? Visit [www.schloebe.de/portfolio/](http://www.schloebe.de/portfolio/)**
 
@@ -51,6 +54,29 @@ Please visit [the official website](http://www.schloebe.de/wordpress/better-plug
 4. Installation finished.
 
 == Changelog ==
+
+= 4.4.0 =
+* Version dump
+
+= 4.1.1 =
+* Added hebrew localization (Thanks to Atar4U)
+
+= 4.0.999 =
+* Version dump
+* Code cleanup and improvements
+
+= 3.8.1.10 =
+* Change of how version compatibility indications are handled (e.g., instead of indicating 3.8.1 as incompatible on an 3.8 install, it now indicates all 3.8.x versions as compatible, so if a plugin supports a major version, it's assumed to support all minor versions too) (props GermanKiwi!)
+
+= 3.8.1.5 =
+* Lowered the plugin's minimum WP requirement
+* Improved multisite compatibility
+
+= 3.8.1.1 =
+* Fixed long line of unwrapped text in version info in some cases
+
+= 3.8.1 =
+* Code cleanup
 
 = 3.8 =
 * Version dump
