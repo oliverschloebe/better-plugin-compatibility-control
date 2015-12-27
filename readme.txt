@@ -25,6 +25,7 @@ Adds version compatibility info to the plugins page to inform the admin at a gla
 * French (fr_FR) (Thanks for contributing french language goes to [tolingo translations](http://www.tolingo.com))
 * French (es_ES) (Thanks for contributing spanisch language goes to nomeconsumas.org)
 * Hebrew (he_IL) (Thanks for contributing hebrew language goes to Atar4U / https://profiles.wordpress.org/ahrale/)
+* Simplified Chinese (zh_CN) (Thanks for contributing simplified chinese language goes to 斌果)
 
 [Developer on Google+](https://plus.google.com/118074611982254715031 "Developer on Google+") | [Developer on Twitter](http://twitter.com/wpseek "Developer on Twitter")
 
