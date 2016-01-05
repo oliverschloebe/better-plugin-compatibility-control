@@ -23,7 +23,7 @@ Adds version compatibility info to the plugins page to inform the admin at a gla
 * Russian (ru_RU) (Thanks for contributing russian language goes to [iPower](http://www.ipower.com))
 * Uzbek (uz_UZ) (Thanks for contributing uzbek language goes to [Alexandra Bolshova](http://www.comfi.com))
 * French (fr_FR) (Thanks for contributing french language goes to [tolingo translations](http://www.tolingo.com))
-* French (es_ES) (Thanks for contributing spanisch language goes to nomeconsumas.org)
+* Spanish (es_ES) (Thanks for contributing spanish language goes to nomeconsumas.org)
 * Hebrew (he_IL) (Thanks for contributing hebrew language goes to Atar4U / https://profiles.wordpress.org/ahrale/)
 * Simplified Chinese (zh_CN) (Thanks for contributing simplified chinese language goes to 斌果)
 
@@ -55,6 +55,11 @@ Please visit [the official website](http://www.schloebe.de/wordpress/better-plug
 4. Installation finished.
 
 == Changelog ==
+
+= 4.4.0.1 =
+* Prepared for localization on wp.org
+* Visual improvements (thanks Demetrio Mendozzi!)
+* Fixed readme.txt typo (thanks Demetrio Mendozzi!)
 
 = 4.4.0 =
 * Version dump
