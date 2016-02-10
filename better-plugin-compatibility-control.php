@@ -8,7 +8,7 @@
  
 /*
 Plugin Name: Better Plugin Compatibility Control
-Version: 4.4.0.1
+Version: 4.4.0.2
 Plugin URI: http://www.schloebe.de/wordpress/better-plugin-compatibility-control-plugin/
 Description: Adds version compatibility info to the plugins page to inform the admin at a glance if a plugin is compatible with the current WP version.
 Author: Oliver Schl&ouml;be
@@ -38,7 +38,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 /**
  * Define the plugin version
  */
-define("BPCC_VERSION", "4.4.0.1");
+define("BPCC_VERSION", "4.4.0.2");
 
 /**
  * Define the global var BPCCISWP29, returning bool if at least WP 2.9 is running
@@ -70,6 +70,19 @@ define("BPCC_PLUGINFULLDIR", WP_PLUGIN_DIR . BPCC_PLUGINPATH );
 * @author scripts@schloebe.de
 */
 class BetterPluginCompatibilityControl {
+	private static $instance = null;
+
+	/**
+	 * Creates or returns an instance of this class.
+	 */
+	public static function get_instance() {
+		if( null == self::$instance ) {
+			self::$instance = new self;
+		}
+
+		return self::$instance;
+	}
+	
 	/**
  	* The BetterPluginCompatibilityControl class constructor
  	* initializing required stuff for the plugin
@@ -77,7 +90,7 @@ class BetterPluginCompatibilityControl {
  	* @since 1.0
  	* @author scripts@schloebe.de
  	*/
-	function betterplugincompatibilitycontrol() {
+	function __construct() {
 		if ( !BPCCISWP29 ) {
 			add_action('admin_notices', array(&$this, 'wpVersionFailed'));
 			return;
@@ -231,7 +244,7 @@ class BetterPluginCompatibilityControl {
 	
 }
 
-if ( class_exists('BetterPluginCompatibilityControl') && is_admin() ) {
-	$betterplugincompatibilitycontrol = new BetterPluginCompatibilityControl();
+if( is_admin() && class_exists('BetterPluginCompatibilityControl') && ( !defined( 'DOING_AJAX' ) || !DOING_AJAX ) ) {
+	add_action( 'plugins_loaded', array( 'BetterPluginCompatibilityControl', 'get_instance' ) );
 }
 ?>

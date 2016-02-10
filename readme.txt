@@ -56,6 +56,9 @@ Please visit [the official website](http://www.schloebe.de/wordpress/better-plug
 
 == Changelog ==
 
+= 4.4.0.2 =
+* Code and compatibility improvements (thanks AlfonsBerger!)
+
 = 4.4.0.1 =
 * Prepared for localization on wp.org
 * Visual improvements (thanks Demetrio Mendozzi!)

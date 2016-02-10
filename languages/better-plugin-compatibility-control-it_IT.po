@@ -1,0 +1,63 @@
+# Translation of Development (trunk) in Italian
+# This file is distributed under the same license as the Development (trunk) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2016-01-05 15:17:37+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/1.0-alpha-1100\n"
+"Project-Id-Version: Development (trunk)\n"
+
+#: better-plugin-compatibility-control.php:200
+msgid "No readme.txt file for this plugin found. Contact the plugin author!"
+msgstr ""
+
+#: better-plugin-compatibility-control.php:200
+msgid "No compatibility data found"
+msgstr ""
+
+#: better-plugin-compatibility-control.php:229
+msgid "Better Plugin Compatibility Control requires at least WordPress 2.9!"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Better Plugin Compatibility Control"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://www.schloebe.de/wordpress/better-plugin-compatibility-control-plugin/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Adds version compatibility info to the plugins page to inform the admin at a glance if a plugin is compatible with the current WP version."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Oliver Schl&ouml;be"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.schloebe.de/"
+msgstr ""
+
+#: better-plugin-compatibility-control.php:191
+#: better-plugin-compatibility-control.php:195
+msgid "Warning: This plugin has not been tested with your current version of WordPress."
+msgstr ""
+
+#: better-plugin-compatibility-control.php:191
+#: better-plugin-compatibility-control.php:195
+msgid "This plugin has been tested successfully with your current version of WordPress."
+msgstr ""
+
+#: better-plugin-compatibility-control.php:192
+#: better-plugin-compatibility-control.php:196
+msgid "No compatibility info for this plugin available."
+msgstr ""
+
+#: better-plugin-compatibility-control.php:192
+#: better-plugin-compatibility-control.php:196
+msgid "N/A"
+msgstr "n.d."
