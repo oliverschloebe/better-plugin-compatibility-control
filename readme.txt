@@ -3,7 +3,7 @@ Contributors: Alphawolf
 Donate link: https://www.schloebe.de/donate/
 Tags: admin, management, plugin, plugins, version, control, compatibility, compatible
 Requires at least: 2.9
-Tested up to: 4.7.9999
+Tested up to: 4.8.9999
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -54,6 +54,9 @@ Please visit [the official website](https://www.schloebe.de/wordpress/better-plu
 4. Installation finished.
 
 == Changelog ==
+
+= 4.8.0 =
+* WordPress 4.8 compatibility
 
 = 4.7.0.1 =
 * Fixed an `Undefined property: stdClass::$tested` issue
