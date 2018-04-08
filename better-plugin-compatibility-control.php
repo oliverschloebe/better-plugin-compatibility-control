@@ -8,7 +8,7 @@
  
 /*
 Plugin Name: Better Plugin Compatibility Control
-Version: 4.9.0
+Version: 4.9.5
 Plugin URI: https://www.schloebe.de/wordpress/better-plugin-compatibility-control-plugin/
 Description: Adds version compatibility info to the plugins page to inform the admin at a glance if a plugin is compatible with the current WP version.
 Author: Oliver Schl&ouml;be
@@ -17,7 +17,7 @@ Text Domain: better-plugin-compatibility-control
 Domain Path: /languages
 
 
-Copyright 2008-2017 Oliver Schlöbe (email : scripts@schloebe.de)
+Copyright 2008-2018 Oliver Schlöbe (email : scripts@schloebe.de)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -38,7 +38,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 /**
  * Define the plugin version
  */
-define("BPCC_VERSION", "4.9.0");
+define("BPCC_VERSION", "4.9.5");
 
 /**
  * Define the global var BPCCISWP29, returning bool if at least WP 2.9 is running
@@ -204,11 +204,11 @@ class BetterPluginCompatibilityControl {
 		if( $minpluginver != '' || $maxpluginver != '' ) {
 			$addminverclass = ( version_compare(trim( $minpluginvermajor ), $_wpversion, '>') ) ? ' bpcc_red' : ' bpcc_green';
 			$addminvertitle = ( version_compare(trim( $minpluginvermajor ), $_wpversion, '>') ) ? __('Warning: This plugin has not been tested with your current version of WordPress.', 'better-plugin-compatibility-control') : __('This plugin has been tested successfully with your current version of WordPress.', 'better-plugin-compatibility-control');
-			$addminverinfo = (count( $minpluginver )>0) ? '<span class="bpcc_minversion' . $addminverclass . '" title="' . $addminvertitle . '">' . trim( $minpluginver ) . '</span>' : '<span class="bpcc_minversion" title="' . __('No compatibility info for this plugin available.', 'better-plugin-compatibility-control') . '">' . __('N/A', 'better-plugin-compatibility-control') . '</span>';
+			$addminverinfo = ( $minpluginver ) ? '<span class="bpcc_minversion' . $addminverclass . '" title="' . $addminvertitle . '">' . trim( $minpluginver ) . '</span>' : '<span class="bpcc_minversion" title="' . __('No compatibility info for this plugin available.', 'better-plugin-compatibility-control') . '">' . __('N/A', 'better-plugin-compatibility-control') . '</span>';
 			
 			$addmaxverclass = ( version_compare(trim( $maxpluginver ), $_wpversion, '<') ) ? ' bpcc_red' : ' bpcc_green';
 			$addminvertitle = ( version_compare(trim( $maxpluginver ), $_wpversion, '<') ) ? __('Warning: This plugin has not been tested with your current version of WordPress.', 'better-plugin-compatibility-control') : __('This plugin has been tested successfully with your current version of WordPress.', 'better-plugin-compatibility-control');
-			$addmaxverinfo = (count( $maxpluginver )>0) ? '<span class="bpcc_maxversion' . $addmaxverclass . '" title="' . $addminvertitle . '">' . trim( $maxpluginver ) . '</span>' : '<span class="bpcc_maxversion" title="' . __('No compatibility info for this plugin available.', 'better-plugin-compatibility-control') . '">' . __('N/A', 'better-plugin-compatibility-control') . '</span>';
+			$addmaxverinfo = ( $maxpluginver ) ? '<span class="bpcc_maxversion' . $addmaxverclass . '" title="' . $addminvertitle . '">' . trim( $maxpluginver ) . '</span>' : '<span class="bpcc_maxversion" title="' . __('No compatibility info for this plugin available.', 'better-plugin-compatibility-control') . '">' . __('N/A', 'better-plugin-compatibility-control') . '</span>';
 			
 			$addverinfo = '<span class="bpcc_wrapper" style="white-space: normal;">' . $addminverinfo . '&ndash;' . $addmaxverinfo . '';
 		} else {

@@ -55,6 +55,11 @@ Please visit [the official website](https://www.schloebe.de/wordpress/better-plu
 
 == Changelog ==
 
+= 4.9.5 =
+* Version dump
+* Minor bug fixes
+* PHP 7.2 compatibility
+
 = 4.9.0 =
 * WordPress 4.9 compatibility
 
