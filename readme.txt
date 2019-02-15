@@ -3,7 +3,7 @@ Contributors: Alphawolf
 Donate link: https://www.schloebe.de/donate/
 Tags: admin, management, plugin, plugins, version, control, compatibility, compatible
 Requires at least: 2.9
-Tested up to: 4.9.9999
+Tested up to: 5.1.9999
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -54,6 +54,14 @@ Please visit [the official website](https://www.schloebe.de/wordpress/better-plu
 4. Installation finished.
 
 == Changelog ==
+
+= 5.1.0 =
+* Version dump
+* WordPress 5.1 compatibility
+
+= 5.0.0 =
+* Version dump
+* WordPress 5.0 compatibility
 
 = 4.9.5 =
 * Version dump
