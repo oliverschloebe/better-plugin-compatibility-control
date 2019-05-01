@@ -8,7 +8,7 @@
  
 /*
 Plugin Name: Better Plugin Compatibility Control
-Version: 5.1.0
+Version: 5.2.0
 Plugin URI: https://www.schloebe.de/wordpress/better-plugin-compatibility-control-plugin/
 Description: Adds version compatibility info to the plugins page to inform the admin at a glance if a plugin is compatible with the current WP version.
 Author: Oliver Schl&ouml;be
@@ -38,7 +38,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 /**
  * Define the plugin version
  */
-define("BPCC_VERSION", "5.1.0");
+define("BPCC_VERSION", "5.2.0");
 
 /**
  * Define the global var BPCCISWP29, returning bool if at least WP 2.9 is running
