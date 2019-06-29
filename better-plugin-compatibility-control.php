@@ -8,7 +8,7 @@
  
 /*
 Plugin Name: Better Plugin Compatibility Control
-Version: 5.2.0
+Version: 5.2.0.5
 Plugin URI: https://www.schloebe.de/wordpress/better-plugin-compatibility-control-plugin/
 Description: Adds version compatibility info to the plugins page to inform the admin at a glance if a plugin is compatible with the current WP version.
 Author: Oliver Schl&ouml;be
@@ -38,7 +38,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 /**
  * Define the plugin version
  */
-define("BPCC_VERSION", "5.2.0");
+define("BPCC_VERSION", "5.2.0.5");
 
 /**
  * Define the global var BPCCISWP29, returning bool if at least WP 2.9 is running
@@ -183,21 +183,23 @@ class BetterPluginCompatibilityControl {
 	function bpcc_pluginversioninfo( $links, $file ) {
 		$_wpversion = str_replace($this->localeInfo["decimal_point"], ".", floatval($GLOBALS['wp_version'])) . ''; // Only get x.y.0 from WP version string
 		
-		$minpluginver = $maxpluginver = '';
+		$minpluginver = $maxpluginver = $minpluginvermajor = '';
 		$bpcc_readme = WP_PLUGIN_DIR . '/' . dirname( $file ) . '/' . 'readme.txt';
 		if( file_exists( $bpcc_readme ) ) {
 			$pluginver_data = get_file_data( $bpcc_readme, array('requires' => 'Requires at least', 'tested' => 'Tested up to') );
 			$minpluginver = $pluginver_data['requires'];
 			$minpluginvermajor = str_replace($this->localeInfo["decimal_point"], ".", floatval($minpluginver)) . '';
 			$maxpluginver = $pluginver_data['tested'];
-			if( $pluginver_data['tested'] ) $maxpluginver = $pluginver_data['tested'];
+			if( !empty($pluginver_data['tested']) ) $maxpluginver = $pluginver_data['tested'];
 		} else {
 			require_once(ABSPATH . 'wp-admin/includes/plugin-install.php');
 			$info = plugins_api('plugin_information', array('fields' => array('tested' => true, 'requires' => true, 'rating' => false, 'downloaded' => false, 'downloadlink' => false, 'last_updated' => false, 'homepage' => false, 'tags' => false, 'sections' => false, 'compatibility' => false, 'author' => false, 'author_profile' => false, 'contributors' => false, 'added' => false), 'slug' => dirname( $file ) ));
 			if (!is_wp_error($info)) {
-				$minpluginver = $info->requires;
-				$minpluginvermajor = str_replace($this->localeInfo["decimal_point"], ".", floatval($minpluginver)) . '';
-				if( $info->tested ) $maxpluginver = $info->tested;
+				if( !empty($info->requires) ) {
+					$minpluginver = $info->requires;
+					$minpluginvermajor = str_replace($this->localeInfo["decimal_point"], ".", floatval($minpluginver)) . '';
+				}
+				if( !empty($info->tested) ) $maxpluginver = $info->tested;
 			}
 		}
 		

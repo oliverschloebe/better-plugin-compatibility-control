@@ -55,6 +55,9 @@ Please visit [the official website](https://www.schloebe.de/wordpress/better-plu
 
 == Changelog ==
 
+= 5.2.0.5 =
+* Fixed a rare but annoying `Undefined property` error (thanks divavocals & pchenriques!)
+
 = 5.2.0 =
 * Version dump
 * WordPress 5.2 compatibility
