@@ -3,7 +3,7 @@ Contributors: Alphawolf
 Donate link: https://www.schloebe.de/donate/
 Tags: admin, management, plugin, plugins, version, control, compatibility, compatible
 Requires at least: 2.9
-Tested up to: 5.2.9999
+Tested up to: 5.3.9999
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -28,7 +28,7 @@ Adds version compatibility info to the plugins page to inform the admin at a gla
 * Simplified Chinese (zh_CN) (Thanks for contributing simplified chinese language goes to 斌果)
 * Italian (it_IT) (Thanks for contributing italian language goes to venerdi)
 
-[Developer on Google+](https://plus.google.com/118074611982254715031 "Developer on Google+") | [Developer on Twitter](http://twitter.com/wpseek "Developer on Twitter")
+[Developer on Twitter](http://twitter.com/wpseek "Developer on Twitter")
 
 **Looking for more WordPress plugins? Visit [www.schloebe.de/portfolio/](https://www.schloebe.de/portfolio/)**
 
@@ -54,6 +54,10 @@ Please visit [the official website](https://www.schloebe.de/wordpress/better-plu
 4. Installation finished.
 
 == Changelog ==
+
+= 5.3.0 =
+* Version dump
+* WordPress 5.3 compatibility
 
 = 5.2.0.5 =
 * Fixed a rare but annoying `Undefined property` error (thanks divavocals & pchenriques!)
