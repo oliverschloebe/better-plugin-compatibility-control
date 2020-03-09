@@ -3,10 +3,10 @@ Contributors: Alphawolf
 Donate link: https://www.schloebe.de/donate/
 Tags: admin, management, plugin, plugins, version, control, compatibility, compatible
 Requires at least: 2.9
-Tested up to: 5.3.9999
+Tested up to: 5.4.9999
 Stable tag: trunk
 License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Adds version compatibility info to the plugins page to inform the admin at a glance if a plugin is compatible with the current WP version.
 
@@ -19,16 +19,16 @@ Adds version compatibility info to the plugins page to inform the admin at a gla
 * English
 * German (de_DE) (Thanks to me ;-))
 * Finnish (fi_FI) (Thanks to C. Hellberg for contributing finnish language)
-* Belorussian (by_BY) (Thanks for contributing belorussian language goes to [Marcis Gasuns](http://www.fatcow.com))
-* Russian (ru_RU) (Thanks for contributing russian language goes to [iPower](http://www.ipower.com))
-* Uzbek (uz_UZ) (Thanks for contributing uzbek language goes to [Alexandra Bolshova](http://www.comfi.com))
-* French (fr_FR) (Thanks for contributing french language goes to [tolingo translations](http://www.tolingo.com))
+* Belorussian (by_BY) (Thanks for contributing belorussian language goes to [Marcis Gasuns](https://www.fatcow.com))
+* Russian (ru_RU) (Thanks for contributing russian language goes to [iPower](https://www.ipower.com))
+* Uzbek (uz_UZ) (Thanks for contributing uzbek language goes to [Alexandra Bolshova](https://www.comfi.com))
+* French (fr_FR) (Thanks for contributing french language goes to [tolingo translations](https://www.tolingo.com))
 * Spanish (es_ES) (Thanks for contributing spanish language goes to nomeconsumas.org)
 * Hebrew (he_IL) (Thanks for contributing hebrew language goes to Atar4U / https://profiles.wordpress.org/ahrale/)
 * Simplified Chinese (zh_CN) (Thanks for contributing simplified chinese language goes to 斌果)
 * Italian (it_IT) (Thanks for contributing italian language goes to venerdi)
 
-[Developer on Twitter](http://twitter.com/wpseek "Developer on Twitter")
+[Developer on Twitter](https://twitter.com/wpseek "Developer on Twitter")
 
 **Looking for more WordPress plugins? Visit [www.schloebe.de/portfolio/](https://www.schloebe.de/portfolio/)**
 
@@ -40,7 +40,7 @@ If you have suggestions please let me know by dropping me a line via e-mail or t
 
 = History? =
 
-Please visit [the official website](http://www.schloebe.de/wordpress/better-plugin-compatibility-control-plugin/#english "Better Plugin Compatibility Control") for the latest information on this plugin.
+Please visit [the official website](https://www.schloebe.de/wordpress/better-plugin-compatibility-control-plugin/#english "Better Plugin Compatibility Control") for the latest information on this plugin.
 
 = Where can I get more information? =
 
@@ -54,6 +54,10 @@ Please visit [the official website](https://www.schloebe.de/wordpress/better-plu
 4. Installation finished.
 
 == Changelog ==
+
+= 5.4.0 =
+* Version dump
+* WordPress 5.4 compatibility
 
 = 5.3.0 =
 * Version dump
