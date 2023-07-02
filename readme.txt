@@ -55,6 +55,9 @@ Please visit [the official website](https://www.schloebe.de/wordpress/better-plu
 
 == Changelog ==
 
+= 6.0.1 =
+* PHP 8.2 compatibility
+
 = 6.0.0 =
 * WordPress 6.0 compatibility
 
