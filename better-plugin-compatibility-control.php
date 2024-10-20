@@ -8,8 +8,8 @@
  
 /*
 Plugin Name: Better Plugin Compatibility Control
-Version: 6.4.0
-Plugin URI: https://www.schloebe.de/wordpress/better-plugin-compatibility-control-plugin/
+Version: 6.6.0
+Plugin URI: https://wordpress.org/plugins/better-plugin-compatibility-control/
 Description: Adds version compatibility info to the plugins page to inform the admin at a glance if a plugin is compatible with the current WP version.
 Author: Oliver Schl&ouml;be
 Author URI: https://www.schloebe.de/
@@ -17,7 +17,7 @@ Text Domain: better-plugin-compatibility-control
 Domain Path: /languages
 
 
-Copyright 2008-2023 Oliver Schlöbe (email : scripts@schloebe.de)
+Copyright 2008-2024 Oliver Schlöbe (email : scripts@schloebe.de)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -38,7 +38,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 /**
  * Define the plugin version
  */
-define("BPCC_VERSION", "6.4.0");
+define("BPCC_VERSION", "6.6.0");
 
 /**
  * Define the global var BPCCISWP29, returning bool if at least WP 2.9 is running
