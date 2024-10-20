@@ -1,7 +1,7 @@
 === Better Plugin Compatibility Control ===
 Contributors: Alphawolf
 Donate link: https://www.schloebe.de/donate/
-Tags: admin, management, plugin, plugins, version, control, compatibility, compatible
+Tags: admin, management, version, control, compatibility
 Requires at least: 2.9
 Tested up to: 6.6.99
 Stable tag: trunk
