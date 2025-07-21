@@ -8,11 +8,11 @@ Stable tag: trunk
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Adds version compatibility info to the plugins page to inform the admin at a glance if a plugin is compatible with the current WP version.
+Adds version compatibility info to the plugins page to inform the admin at a glance if a plugin is compatible with the current WP and PHP version.
 
 == Description ==
 
-**Better Plugin Compatibility Control** makes it easy for the blog administrator to **check compatibility of all installed plugins**. The plugin adds version compatibility info to the plugins page to inform the admin at a glance if a plugin is compatible with the current WP version. Until now you had to look it up on the respective plugin page. It's now up to the admin wether to deactivate a non-compatible plugin or not.
+**Better Plugin Compatibility Control** makes it easy for the blog administrator to **check compatibility of all installed plugins**. The plugin adds version compatibility info to the plugins page to inform the admin at a glance if a plugin is compatible with the current WP version and PHP version. Until now you had to look it up on the respective plugin page. It's now up to the admin wether to deactivate a non-compatible plugin or not.
 
 **Included languages:**
 
@@ -54,6 +54,9 @@ Please visit [the official website](https://www.schloebe.de/wordpress/better-plu
 4. Installation finished.
 
 == Changelog ==
+
+= 6.8.0 =
+* Added PHP compatibility info
 
 = 6.6.0 =
 * compatibility bump

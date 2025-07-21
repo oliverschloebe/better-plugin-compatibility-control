@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: Better Plugin Compatibility Control v3.8.1.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-27 21:32+0000\n"
-"PO-Revision-Date: 2016-12-27 21:33+0000\n"
+"PO-Revision-Date: 2025-07-21 09:39+0000\n"
 "Last-Translator: Alphawolf <scripts@schloebe.de>\n"
-"Language-Team: German\n"
+"Language-Team: Deutsch\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1\n"
-"X-Generator: Loco - https://localise.biz/\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Loco https://localise.biz/\n"
 "X-Poedit-Language: German\n"
 "X-Poedit-Country: GERMANY\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -20,11 +20,7 @@ msgstr ""
 "X-Poedit-Bookmarks: \n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Textdomain-Support: yes\n"
-"Language: de-DE"
-
-#. Name of the plugin
-msgid "Better Plugin Compatibility Control"
-msgstr "Better Plugin Compatibility Control"
+"Language: de_DE"
 
 #. Description of the plugin
 msgid ""
@@ -34,31 +30,62 @@ msgstr ""
 "Fügt der Plugin-Seite weitere Versions-Informationen hinzu, die helfen, auf "
 "einen Blick die Kompatibilität mit WordPress zu erkennen."
 
-#. URI of the plugin
-msgid ""
-"https://www.schloebe.de/wordpress/better-plugin-compatibility-control-plugin/"
-msgstr ""
-"https://www.schloebe.de/wordpress/better-plugin-compatibility-control-plugin/"
+#. Name of the plugin
+msgid "Better Plugin Compatibility Control"
+msgstr "Better Plugin Compatibility Control"
 
-#. Author of the plugin
-msgid "Oliver Schl&ouml;be"
-msgstr "Oliver Schl&ouml;be"
+#: better-plugin-compatibility-control.php:281
+msgid "Better Plugin Compatibility Control requires at least WordPress 2.9!"
+msgstr "Better Plugin Compatibility Control benötigt mindestens WordPress 2.9!"
+
+#. URI of the plugin
+msgid "https://wordpress.org/plugins/better-plugin-compatibility-control/"
+msgstr "https://de.wordpress.org/plugins/better-plugin-compatibility-control/"
 
 #. Author URI of the plugin
 msgid "https://www.schloebe.de/"
 msgstr "https://www.schloebe.de/"
 
-#: better-plugin-compatibility-control.php:206
-#: better-plugin-compatibility-control.php:210
-msgid ""
-"Warning: This plugin has not been tested with your current version of "
-"WordPress."
-msgstr ""
-"Warnung: Dieses Plugin wurde nicht mit Ihrer aktuellen Version von WordPress "
-"getestet."
+#: better-plugin-compatibility-control.php:229
+#: better-plugin-compatibility-control.php:233
+msgid "N/A"
+msgstr "N/V"
 
-#: better-plugin-compatibility-control.php:206
-#: better-plugin-compatibility-control.php:210
+#: better-plugin-compatibility-control.php:237
+msgid "No compatibility data found"
+msgstr "Keine Daten zur Kompatibilität gefunden"
+
+#: better-plugin-compatibility-control.php:229
+#: better-plugin-compatibility-control.php:233
+msgid "No compatibility info for this plugin available."
+msgstr "Keine Kompatibilitäts-Infos zu diesem Plugin verfügbar."
+
+#: better-plugin-compatibility-control.php:248
+msgid "No max PHP compatibility info for this plugin available."
+msgstr "Keine max. PHP-Kompatibilitäts-Infos zu diesem Plugin verfügbar."
+
+#: better-plugin-compatibility-control.php:244
+msgid "No PHP compatibility info for this plugin available."
+msgstr "Keine PHP-Kompatibilitäts-Infos zu diesem Plugin verfügbar."
+
+#: better-plugin-compatibility-control.php:237
+msgid "No readme.txt file for this plugin found. Contact the plugin author!"
+msgstr ""
+"Keine readme.txt-Datei für dieses Plugin gefunden. Wenden Sie sich an den "
+"Plugin-Autor!"
+
+#. Author of the plugin
+msgid "Oliver Schl&ouml;be"
+msgstr "Oliver Schl&ouml;be"
+
+#: better-plugin-compatibility-control.php:243
+#: better-plugin-compatibility-control.php:247
+msgid "This plugin has been tested successfully with your current PHP version."
+msgstr ""
+"Dieses Plugin wurde erfolgreich mit Ihrer aktuellen Version von PHP getestet."
+
+#: better-plugin-compatibility-control.php:228
+#: better-plugin-compatibility-control.php:232
 msgid ""
 "This plugin has been tested successfully with your current version of "
 "WordPress."
@@ -66,26 +93,18 @@ msgstr ""
 "Dieses Plugin wurde erfolgreich mit Ihrer aktuellen Version von WordPress "
 "getestet."
 
-#: better-plugin-compatibility-control.php:207
-#: better-plugin-compatibility-control.php:211
-msgid "No compatibility info for this plugin available."
-msgstr "Keine Kompatibilitäts-Infos zu diesem Plugin verfügbar."
-
-#: better-plugin-compatibility-control.php:207
-#: better-plugin-compatibility-control.php:211
-msgid "N/A"
-msgstr "N/V"
-
-#: better-plugin-compatibility-control.php:215
-msgid "No readme.txt file for this plugin found. Contact the plugin author!"
+#: better-plugin-compatibility-control.php:243
+#: better-plugin-compatibility-control.php:247
+msgid "Warning: This plugin has not been tested with your current PHP version."
 msgstr ""
-"Keine readme.txt-Datei für dieses Plugin gefunden. Wenden Sie sich an den "
-"Plugin-Autor!"
+"Warnung: Dieses Plugin wurde nicht mit Ihrer aktuellen Version von PHP "
+"getestet."
 
-#: better-plugin-compatibility-control.php:215
-msgid "No compatibility data found"
-msgstr "Keine Daten zur Kompatibilität gefunden"
-
-#: better-plugin-compatibility-control.php:244
-msgid "Better Plugin Compatibility Control requires at least WordPress 2.9!"
-msgstr "Better Plugin Compatibility Control benötigt mindestens WordPress 2.9!"
+#: better-plugin-compatibility-control.php:228
+#: better-plugin-compatibility-control.php:232
+msgid ""
+"Warning: This plugin has not been tested with your current version of "
+"WordPress."
+msgstr ""
+"Warnung: Dieses Plugin wurde nicht mit Ihrer aktuellen Version von WordPress "
+"getestet."
