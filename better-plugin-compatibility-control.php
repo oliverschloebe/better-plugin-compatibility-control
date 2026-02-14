@@ -8,7 +8,7 @@
  
 /*
 Plugin Name: Better Plugin Compatibility Control
-Version: 6.8.0
+Version: 6.9.0
 Plugin URI: https://wordpress.org/plugins/better-plugin-compatibility-control/
 Description: Adds version compatibility info to the plugins page to inform the admin at a glance if a plugin is compatible with the current WP version.
 Author: Oliver Schl&ouml;be
@@ -17,7 +17,7 @@ Text Domain: better-plugin-compatibility-control
 Domain Path: /languages
 
 
-Copyright 2008-2025 Oliver Schlöbe (email : scripts@schloebe.de)
+Copyright 2008-2026 Oliver Schlöbe (email : scripts@schloebe.de)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -38,7 +38,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 /**
  * Define the plugin version
  */
-define("BPCC_VERSION", "6.8.0");
+define("BPCC_VERSION", "6.9.0");
 
 /**
  * Define the global var BPCCISWP29, returning bool if at least WP 2.9 is running
@@ -98,7 +98,7 @@ class BetterPluginCompatibilityControl {
 	* @since 1.0
 	* @author scripts@schloebe.de
 	*/
-	function __construct() {
+	public function __construct() {
 		if ( !BPCCISWP29 ) {
 			add_action('admin_notices', array(&$this, 'wpVersionFailed'));
 			return;
@@ -118,7 +118,7 @@ class BetterPluginCompatibilityControl {
 	* @uses $pagenow
 	* @author scripts@schloebe.de
 	*/
-	function bpcc_init() {
+	public function bpcc_init() {
 		global $pagenow;
 		if ( !function_exists("add_action") ) return;
 		
@@ -146,7 +146,7 @@ class BetterPluginCompatibilityControl {
 	 * @since 1.0
 	 * @author scripts@schloebe.de
 	 */
-	function bpcc_css_admin_header() {
+	public function bpcc_css_admin_header() {
 		echo '
 <style type="text/css">
 .bpcc_minversion {
@@ -188,7 +188,7 @@ class BetterPluginCompatibilityControl {
 	* @since 1.0
 	* @author scripts@schloebe.de
 	*/
-	function bpcc_pluginversioninfo( $links, $file ) {
+	public function bpcc_pluginversioninfo( $links, $file ) {
 		$_wpversion = str_replace($this->localeInfo["decimal_point"], ".", floatval($GLOBALS['wp_version'])) . '';
 		$_phpversion = PHP_VERSION;
 
@@ -264,7 +264,7 @@ class BetterPluginCompatibilityControl {
 	* @since 1.0
 	* @author scripts@schloebe.de
 	*/
-	function bpcc_load_textdomain() {
+	public function bpcc_load_textdomain() {
 		load_plugin_textdomain('better-plugin-compatibility-control', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/');
 	}
 	
@@ -277,7 +277,7 @@ class BetterPluginCompatibilityControl {
 	* @since 3.8.1.15
 	* @author scripts@schloebe.de
 	*/
-	function wpVersionFailed() {
+	public function wpVersionFailed() {
 		echo "<div id='wpversionfailedmessage' class='error fade'><p>" . __('Better Plugin Compatibility Control requires at least WordPress 2.9!', 'better-plugin-compatibility-control') . "</p></div>";
 	}
 	
