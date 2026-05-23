@@ -3,7 +3,7 @@ Contributors: Alphawolf
 Donate link: https://www.schloebe.de/donate/
 Tags: admin, management, version, control, compatibility
 Requires at least: 2.9
-Tested up to: 6.9.99
+Tested up to: 7.0.99
 Stable tag: trunk
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -54,6 +54,9 @@ Please visit [the official website](https://www.schloebe.de/wordpress/better-plu
 4. Installation finished.
 
 == Changelog ==
+
+= 7.0.0 =
+* compatibility bump
 
 = 6.9.0 =
 * compatibility bump
