@@ -8,7 +8,7 @@
  
 /*
 Plugin Name: Better Plugin Compatibility Control
-Version: 7.0.0
+Version: 7.1.0
 Plugin URI: https://wordpress.org/plugins/better-plugin-compatibility-control/
 Description: Adds version compatibility info to the plugins page to inform the admin at a glance if a plugin is compatible with the current WP version.
 Author: Oliver Schl&ouml;be
@@ -34,16 +34,15 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 
 /**
  * Define the plugin version
  */
-define("BPCC_VERSION", "7.0.0");
-
-/**
- * Define the global var BPCCISWP29, returning bool if at least WP 2.9 is running
- */
-define('BPCCISWP29', version_compare($GLOBALS['wp_version'], '2.8.999', '>='));
+define("BPCC_VERSION", "7.1.0");
 
 /**
  * Define the plugin path slug
@@ -70,7 +69,7 @@ define("BPCC_PLUGINFULLDIR", WP_PLUGIN_DIR . BPCC_PLUGINPATH );
 * @author scripts@schloebe.de
 */
 class BetterPluginCompatibilityControl {
-	private static $instance = null;
+	private static ?BetterPluginCompatibilityControl $instance = null;
 
 	/**
 	 * The locale info array
@@ -99,11 +98,6 @@ class BetterPluginCompatibilityControl {
 	* @author scripts@schloebe.de
 	*/
 	public function __construct() {
-		if ( !BPCCISWP29 ) {
-			add_action('admin_notices', array(&$this, 'wpVersionFailed'));
-			return;
-		}
-		
 		$this->localeInfo = localeconv();
 		
 		add_action('plugins_loaded', array(&$this, 'bpcc_load_textdomain'));
@@ -188,7 +182,7 @@ class BetterPluginCompatibilityControl {
 	* @since 1.0
 	* @author scripts@schloebe.de
 	*/
-	public function bpcc_pluginversioninfo( $links, $file ) {
+	public function bpcc_pluginversioninfo( array $links, string $file ) {
 		$_wpversion = str_replace($this->localeInfo["decimal_point"], ".", floatval($GLOBALS['wp_version'])) . '';
 		$_phpversion = PHP_VERSION;
 
@@ -210,8 +204,16 @@ class BetterPluginCompatibilityControl {
 			if( !empty($pluginver_data['tested_php']) ) $maxphpver = $pluginver_data['tested_php'];
 		} else {
 			require_once(ABSPATH . 'wp-admin/includes/plugin-install.php');
-			$info = plugins_api('plugin_information', array('fields' => array('tested' => true, 'requires' => true, 'requires_php' => true, 'tested_php' => true, 'rating' => false, 'downloaded' => false, 'downloadlink' => false, 'last_updated' => false, 'homepage' => false, 'tags' => false, 'sections' => false, 'compatibility' => false, 'author' => false, 'author_profile' => false, 'contributors' => false, 'added' => false), 'slug' => dirname( $file ) ));
-			if (!is_wp_error($info)) {
+			$bpcc_slug = dirname( $file );
+			$bpcc_cache_key = 'bpcc_plugininfo_' . md5( $bpcc_slug );
+			$info = get_transient( $bpcc_cache_key );
+			if ( false === $info ) {
+				$info = plugins_api('plugin_information', array('fields' => array('tested' => true, 'requires' => true, 'requires_php' => true, 'tested_php' => true, 'rating' => false, 'downloaded' => false, 'downloadlink' => false, 'last_updated' => false, 'homepage' => false, 'tags' => false, 'sections' => false, 'compatibility' => false, 'author' => false, 'author_profile' => false, 'contributors' => false, 'added' => false), 'slug' => $bpcc_slug ));
+				if ( ! is_wp_error( $info ) ) {
+					set_transient( $bpcc_cache_key, $info, 12 * HOUR_IN_SECONDS );
+				}
+			}
+			if ( ! is_wp_error( $info ) ) {
 				if( !empty($info->requires) ) {
 					$minpluginver = $info->requires;
 					$minpluginvermajor = str_replace($this->localeInfo["decimal_point"], ".", floatval($minpluginver)) . '';
@@ -226,11 +228,11 @@ class BetterPluginCompatibilityControl {
 		if( $minpluginver != '' || $maxpluginver != '' ) {
 			$addminverclass = ( version_compare(trim( $minpluginvermajor ), $_wpversion, '>') ) ? ' bpcc_red' : ' bpcc_green';
 			$addminvertitle = ( version_compare(trim( $minpluginvermajor ), $_wpversion, '>') ) ? __('Warning: This plugin has not been tested with your current version of WordPress.', 'better-plugin-compatibility-control') : __('This plugin has been tested successfully with your current version of WordPress.', 'better-plugin-compatibility-control');
-			$addminverinfo = ( $minpluginver ) ? '<span class="bpcc_minversion' . $addminverclass . '" title="' . $addminvertitle . '">' . trim( $minpluginver ) . '</span>' : '<span class="bpcc_minversion" title="' . __('No compatibility info for this plugin available.', 'better-plugin-compatibility-control') . '">WP ' . __('N/A', 'better-plugin-compatibility-control') . '</span>';
+			$addminverinfo = ( $minpluginver ) ? '<span class="bpcc_minversion' . esc_attr( $addminverclass ) . '" title="' . esc_attr( $addminvertitle ) . '">' . esc_html( trim( $minpluginver ) ) . '</span>' : '<span class="bpcc_minversion" title="' . __('No compatibility info for this plugin available.', 'better-plugin-compatibility-control') . '">WP ' . __('N/A', 'better-plugin-compatibility-control') . '</span>';
 
 			$addmaxverclass = ( version_compare(trim( $maxpluginver ), $_wpversion, '<') ) ? ' bpcc_red' : ' bpcc_green';
 			$addminvertitle = ( version_compare(trim( $maxpluginver ), $_wpversion, '<') ) ? __('Warning: This plugin has not been tested with your current version of WordPress.', 'better-plugin-compatibility-control') : __('This plugin has been tested successfully with your current version of WordPress.', 'better-plugin-compatibility-control');
-			$addmaxverinfo = ( $maxpluginver ) ? '<span class="bpcc_maxversion' . $addmaxverclass . '" title="' . $addminvertitle . '">' . trim( $maxpluginver ) . '</span>' : '<span class="bpcc_maxversion" title="' . __('No compatibility info for this plugin available.', 'better-plugin-compatibility-control') . '">' . __('N/A', 'better-plugin-compatibility-control') . '</span>';
+			$addmaxverinfo = ( $maxpluginver ) ? '<span class="bpcc_maxversion' . esc_attr( $addmaxverclass ) . '" title="' . esc_attr( $addminvertitle ) . '">' . esc_html( trim( $maxpluginver ) ) . '</span>' : '<span class="bpcc_maxversion" title="' . __('No compatibility info for this plugin available.', 'better-plugin-compatibility-control') . '">' . __('N/A', 'better-plugin-compatibility-control') . '</span>';
 
 			$addverinfo = '<span class="bpcc_wrapper" style="white-space: normal;">WP ' . $addminverinfo . '&ndash;' . $addmaxverinfo . '';
 		} else {
@@ -241,11 +243,11 @@ class BetterPluginCompatibilityControl {
 		if( $minphpver != '' || $maxphpver != '' ) {
 			$addminphpverclass = ( $minphpver && version_compare(trim( $minphpver ), $_phpversion, '>') ) ? ' bpcc_red' : ' bpcc_green';
 			$addminphpvertitle = ( $minphpver && version_compare(trim( $minphpver ), $_phpversion, '>') ) ? __('Warning: This plugin has not been tested with your current PHP version.', 'better-plugin-compatibility-control') : __('This plugin has been tested successfully with your current PHP version.', 'better-plugin-compatibility-control');
-			$addminphpverinfo = ( $minphpver ) ? '<span class="bpcc_minversion' . $addminphpverclass . '" title="' . $addminphpvertitle . '">' . trim( $minphpver ) . '</span>' : '<span class="bpcc_minversion" title="' . __('No PHP compatibility info for this plugin available.', 'better-plugin-compatibility-control') . '">PHP N/A</span>';
+			$addminphpverinfo = ( $minphpver ) ? '<span class="bpcc_minversion' . esc_attr( $addminphpverclass ) . '" title="' . esc_attr( $addminphpvertitle ) . '">' . esc_html( trim( $minphpver ) ) . '</span>' : '<span class="bpcc_minversion" title="' . __('No PHP compatibility info for this plugin available.', 'better-plugin-compatibility-control') . '">PHP N/A</span>';
 
 			$addmaxphpverclass = ( $maxphpver && version_compare(trim( $maxphpver ), $_phpversion, '<') ) ? ' bpcc_red' : ' bpcc_green';
 			$addmaxphpvertitle = ( $maxphpver && version_compare(trim( $maxphpver ), $_phpversion, '<') ) ? __('Warning: This plugin has not been tested with your current PHP version.', 'better-plugin-compatibility-control') : __('This plugin has been tested successfully with your current PHP version.', 'better-plugin-compatibility-control');
-			$addmaxphpverinfo = ( $maxphpver ) ? '<span class="bpcc_maxversion' . $addmaxphpverclass . '" title="' . $addmaxphpvertitle . '">' . trim( $maxphpver ) . '</span>' : '<span class="bpcc_maxversion" title="' . __('No max PHP compatibility info for this plugin available.', 'better-plugin-compatibility-control') . '">N/A</span>';
+			$addmaxphpverinfo = ( $maxphpver ) ? '<span class="bpcc_maxversion' . esc_attr( $addmaxphpverclass ) . '" title="' . esc_attr( $addmaxphpvertitle ) . '">' . esc_html( trim( $maxphpver ) ) . '</span>' : '<span class="bpcc_maxversion" title="' . __('No max PHP compatibility info for this plugin available.', 'better-plugin-compatibility-control') . '">N/A</span>';
 
 			$addphpverinfo = '<span class="bpcc_wrapper" style="white-space: normal;"> | PHP ' . $addminphpverinfo . '&ndash;' . $addmaxphpverinfo . '</span>';
 		} else {
@@ -267,20 +269,6 @@ class BetterPluginCompatibilityControl {
 	public function bpcc_load_textdomain() {
 		load_plugin_textdomain('better-plugin-compatibility-control', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/');
 	}
-	
-	
-	/**
-	* Checks for the version of WordPress,
-	* and adds a message to inform the user
-	* if required WP version is less than 2.9
-	*
-	* @since 3.8.1.15
-	* @author scripts@schloebe.de
-	*/
-	public function wpVersionFailed() {
-		echo "<div id='wpversionfailedmessage' class='error fade'><p>" . __('Better Plugin Compatibility Control requires at least WordPress 2.9!', 'better-plugin-compatibility-control') . "</p></div>";
-	}
-	
 }
 
 if( is_admin() && class_exists('BetterPluginCompatibilityControl') && ( !defined( 'DOING_AJAX' ) || !DOING_AJAX ) ) {

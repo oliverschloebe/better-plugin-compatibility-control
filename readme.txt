@@ -3,7 +3,8 @@ Contributors: Alphawolf
 Donate link: https://www.schloebe.de/donate/
 Tags: admin, management, version, control, compatibility
 Requires at least: 2.9
-Tested up to: 7.0.99
+Tested up to: 7.1
+Requires PHP: 7.4
 Stable tag: trunk
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -54,6 +55,12 @@ Please visit [the official website](https://www.schloebe.de/wordpress/better-plu
 4. Installation finished.
 
 == Changelog ==
+
+= 7.1.0 =
+* WordPress 7.1 compatibility
+* Added ABSPATH direct-access guard
+* Escaped version compatibility output for safer rendering
+* Cached wordpress.org plugin info lookups to reduce network requests
 
 = 7.0.0 =
 * compatibility bump
